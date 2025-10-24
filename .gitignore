@@ -1,0 +1,46 @@
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+
+# Virtual Environment
+venv/
+.venv/
+env/
+ENV/
+
+# Jupyter Notebook
+.ipynb_checkpoints/
+*.ipynb_checkpoints
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# Claude Code
+.claude/
+
+# Project specific - large data files (optional)
+# Uncomment if you want to exclude raw data from git
+# datas/raw/*.xlsx
+# datas/raw/*.txt
+
+# Temporary files
+*.tmp
+*.bak
+*.log
+
+# Model files (if generated)
+*.pkl
+*.h5
+*.model

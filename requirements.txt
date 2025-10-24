@@ -1,0 +1,22 @@
+# Core Data Science
+pandas>=1.5.0
+numpy>=1.23.0
+
+# Visualization
+matplotlib>=3.6.0
+seaborn>=0.12.0
+koreanize-matplotlib>=0.1.1
+
+# Machine Learning
+scikit-learn>=1.2.0
+lightgbm>=3.3.0
+
+# Data Loading
+openpyxl>=3.0.0
+
+# Jupyter
+jupyter>=1.0.0
+ipykernel>=6.0.0
+
+# Additional utilities
+scipy>=1.10.0
