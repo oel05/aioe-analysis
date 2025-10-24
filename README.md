@@ -23,7 +23,7 @@ ChatGPT와 같은 대형 언어 모델(LLM)이 다양한 직업에 어떤 영향
 
 ```bash
 # 저장소 클론
-git clone <repository-url>
+git clone [<repository-url>](https://github.com/oel05/aioe-analysis.git)
 cd aioe_proj
 
 # 가상환경 생성
@@ -175,4 +175,5 @@ MIT License
 ---
 
 **💡 Tip:** 프로젝트에 대한 자세한 설명은 `notebooks/00_AIOE_intro.ipynb`를 참고하세요!
+
 
