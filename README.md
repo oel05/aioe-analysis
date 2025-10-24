@@ -164,7 +164,7 @@ MIT License
 ## 👤 작성자
 
 - 연구 기반: Felten et al. (2023)
-- 구현: [Your Name]
+- 구현: LeoLAB
 
 ## 🙏 감사의 말
 
@@ -175,3 +175,4 @@ MIT License
 ---
 
 **💡 Tip:** 프로젝트에 대한 자세한 설명은 `notebooks/00_AIOE_intro.ipynb`를 참고하세요!
+
