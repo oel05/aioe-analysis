@@ -15,7 +15,6 @@ ChatGPT와 같은 대형 언어 모델(LLM)이 다양한 직업에 어떤 영향
 - 📐 AIOE 점수 계산 (974개 직업)
 - 🔍 탐색적 데이터 분석 (EDA)
 - 🎯 임금 예측 모델링 (Regression)
-- 🎨 직업 군집 분석 (K-Means Clustering)
 
 ## 🚀 빠른 시작
 
@@ -51,8 +50,6 @@ jupyter notebook
 02_AIOE_EDA.ipynb                ← 탐색적 데이터 분석
     ↓
 03_AIOE_Modeling.ipynb           ← 머신러닝 모델링
-    ↓
-04_AIOE_Cluster.ipynb            ← 군집 분석
 ```
 
 ## 📁 프로젝트 구조
@@ -66,8 +63,7 @@ aioe_proj/
 │   ├── 00_AIOE_intro.ipynb            # 프로젝트 소개
 │   ├── 01_AIOE_Data_Preprocessing.ipynb  # 데이터 전처리
 │   ├── 02_AIOE_EDA.ipynb              # 탐색적 데이터 분석
-│   ├── 03_AIOE_Modeling.ipynb         # 머신러닝 모델링
-│   └── 04_AIOE_Cluster.ipynb          # 군집 분석
+│   └── 03_AIOE_Modeling.ipynb         # 머신러닝 모델링
 │
 ├── datas/                              # 데이터
 │   ├── raw/                           # 원본 데이터 (수정 금지)
@@ -116,20 +112,27 @@ $$\text{AIOE}_k = \frac{\sum_{j} A_{ij} \times L_{jk} \times I_{jk}}{\sum_{j} L_
 ## 🎯 주요 결과
 
 ### 1. AIOE 분포
-- **최고 AIOE 직업**: 텔레마케터, 법학 교수, 언어학 교수
-- **최저 AIOE 직업**: 요리사, 정비공, 건설 노동자
+- **최고 AIOE 직업**: Air Traffic Controllers (4.71), Neurologists (4.31), Lawyers (4.19)
+- **최저 AIOE 직업**: 청소부 (2.05), 요리사 (2.19), 소매 판매원 (2.40)
+- 평균 AIOE: 3.34 (747개 직업)
 
-### 2. AIOE와 임금의 관계
-- 양의 상관관계 확인 (r ≈ 0.4~0.5)
-- 고AIOE ≠ 항상 고임금 (복잡한 관계)
+### 2. AIOE와 임금의 양의 상관관계
+- AIOE 점수가 높을수록 평균 임금도 높은 경향
+- 단, 단순 선형 관계는 아님 (직업 특성에 따라 다양)
+- 고AIOE-고임금: 변호사, 의사, 교육관리자
+- 저AIOE-저임금: 청소부, 식당 보조, 단순 노동
 
-### 3. 임금 예측 모델
-- 최고 성능: LightGBM (R² ≈ 0.7~0.8)
-- 텍스트 피처 추가 시 성능 향상
+### 3. 머신러닝 임금 예측 모델 성능
+- **최고 성능: Random Forest (R² = 0.66)**
+  - 숫자 피처만 (AIOE + Employment): R² = 0.49
+  - 숫자 + 텍스트 (Description TF-IDF): R² = 0.66 (**+17.4%p**)
+- AIOE만으로도 임금 분산의 50.8% 설명 가능
+- 직무 설명 텍스트가 예측 성능을 크게 향상
 
-### 4. 직업 군집
-- 5~6개 주요 그룹 발견
-- "고AIOE-고임금", "저AIOE-저임금" 등
+### 4. 피처 중요도 분석
+- **가장 중요한 피처**: AIOE 점수
+- **중요한 텍스트 단어**: "research", "develop", "manage", "analyze"
+- 전문성 관련 단어가 높은 임금과 강한 연관성
 
 ## 🛠️ 기술 스택
 
