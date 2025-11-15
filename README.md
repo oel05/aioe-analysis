@@ -31,35 +31,6 @@ ChatGPT, Claude, Gemini... AI가 우리 일상에 깊숙이 들어온 지금, �
 - 💡 **능력 기반 접근**: 각 직업이 요구하는 52개 능력을 AI가 얼마나 잘 수행하는지 평가
 - 🎓 **검증된 방법론**: Strategic Management Journal 게재 논문의 분석 방법 재현
 
-### 이 분석이 의미하지 않는 것
-
-이 프로젝트는 **"AI가 직업을 없앤다"는 말을 하는 것이 아닙니다.**
-
-- ❌ 높은 AIOE ≠ 직업이 사라짐
-- ❌ 낮은 AIOE ≠ 안전한 직업
-- ✅ AIOE = AI가 도울 수 있는 영역이 많다
-- ✅ **목적**: 현 상황을 객관적으로 이해하고, 미래를 준비하는 나침반
-
----
-
-## 🔍 주요 발견
-
-### 1. AI 노출도는 양극화되어 있다 (이봉분포)
-
-직업들은 크게 두 그룹으로 나뉩니다:
-- **높은 AIOE 그룹**: 정보 처리, 분석, 언어 능력이 중요한 직업 (변호사, 작가, 번역가 등)
-- **낮은 AIOE 그룹**: 신체적 기술, 손재주가 중요한 직업 (요리사, 건설 노동자 등)
-
-### 2. 화이트칼라 직업의 AI 노출도가 더 높다
-
-과거 산업혁명이 블루칼라 직업에 영향을 준 것과 달리, **AI 혁명은 사무직/전문직에 더 큰 영향**을 미칩니다.
-
-### 3. 높은 AIOE = 높은 생산성 향상 기회
-
-- AI 도구를 잘 활용하면 **업무 효율성을 크게 높일 수 있음**
-- 반복적이고 패턴화된 업무에서 해방되어 **창의적 업무에 집중** 가능
-- AI는 위협이 아닌 **협업 도구**
-
 ---
 
 ## 📚 무엇을 배우나요?
@@ -80,65 +51,6 @@ ChatGPT, Claude, Gemini... AI가 우리 일상에 깊숙이 들어온 지금, �
 - 🤖 AI가 잘하는 것 vs 못하는 것
 - 💼 직업의 미래와 변화 방향
 - 🎯 개인의 커리어 전략 수립
-
----
-
-## 🗂️ 프로젝트 구조
-
-```
-aioe_proj/
-├── README.md                          # 프로젝트 소개
-├── datas/
-│   ├── raw/                           # 원본 데이터
-│   │   ├── Abilities.xlsx             # O*NET 직업별 능력 데이터 (894 직업 × 52 능력)
-│   │   └── mturk_mapping_matrix.csv   # AI-능력 매핑 데이터 (10 AI × 52 능력)
-│   └── processed/                     # 처리된 데이터
-│       ├── preprocessed_data.csv      # 병합된 데이터
-│       └── aioe_master.csv            # 최종 AIOE 점수
-└── notebooks/
-    ├── 00_AIOE_Introduction.ipynb     # 프로젝트 소개 및 배경
-    ├── 01_AIOE_Data_Preprocessing.ipynb  # 데이터 전처리
-    ├── 02_AIOE_Calculation.ipynb      # AIOE 점수 계산
-    ├── 03_AIOE_EDA.ipynb              # 탐색적 데이터 분석
-    └── 04_AIOE_Conclusion.ipynb       # 결론 및 인사이트
-```
-
----
-
-## 🚀 시작하기
-
-### Google Colab (추천)
-
-1. **Google Drive에 업로드**
-   - `aioe_proj` 폴더를 Google Drive **메인 화면**에 업로드
-   - 경로: `내 드라이브/aioe_proj`
-
-2. **노트북 열기**
-   - Google Drive에서 `.ipynb` 파일 우클릭
-   - `연결 앱` → `Google Colaboratory` 선택
-
-3. **순서대로 실행**
-   - 00 → 01 → 02 → 03 → 04 순서로 실행
-
-### 로컬 환경
-
-```bash
-# 1. 저장소 클론
-git clone https://github.com/your-username/aioe-analysis.git
-cd aioe_proj
-
-# 2. 가상환경 생성 및 활성화
-python -m venv venv
-source venv/bin/activate  # Windows: venv\Scripts\activate
-
-# 3. 패키지 설치
-pip install pandas numpy scipy matplotlib seaborn openpyxl jupyter koreanize_matplotlib
-
-# 4. Jupyter 실행
-jupyter notebook
-
-# 5. notebooks/ 폴더에서 노트북 순서대로 실행
-```
 
 ---
 
@@ -222,6 +134,66 @@ AIOE = (AI가 도와줄 수 있는 능력들의 가중치 합) / (전체 능력�
 
 ---
 
+
+## 🗂️ 프로젝트 구조
+
+```
+aioe_proj/
+├── README.md                          # 프로젝트 소개
+├── datas/
+│   ├── raw/                           # 원본 데이터
+│   │   ├── Abilities.xlsx             # O*NET 직업별 능력 데이터 (894 직업 × 52 능력)
+│   │   └── mturk_mapping_matrix.csv   # AI-능력 매핑 데이터 (10 AI × 52 능력)
+│   └── processed/                     # 처리된 데이터
+│       ├── preprocessed_data.csv      # 병합된 데이터
+│       └── aioe_master.csv            # 최종 AIOE 점수
+└── notebooks/
+    ├── 00_AIOE_Introduction.ipynb     # 프로젝트 소개 및 배경
+    ├── 01_AIOE_Data_Preprocessing.ipynb  # 데이터 전처리
+    ├── 02_AIOE_Calculation.ipynb      # AIOE 점수 계산
+    ├── 03_AIOE_EDA.ipynb              # 탐색적 데이터 분석
+    └── 04_AIOE_Conclusion.ipynb       # 결론 및 인사이트
+```
+
+---
+
+## 🚀 시작하기
+
+### Google Colab (추천)
+
+1. **Google Drive에 업로드**
+   - `aioe_proj` 폴더를 Google Drive **메인 화면**에 업로드
+   - 경로: `내 드라이브/aioe_proj`
+
+2. **노트북 열기**
+   - Google Drive에서 `.ipynb` 파일 우클릭
+   - `연결 앱` → `Google Colaboratory` 선택
+
+3. **순서대로 실행**
+   - 00 → 01 → 02 → 03 → 04 순서로 실행
+
+### 로컬 환경
+
+```bash
+# 1. 저장소 클론
+git clone https://github.com/your-username/aioe-analysis.git
+cd aioe_proj
+
+# 2. 가상환경 생성 및 활성화
+python -m venv venv
+source venv/bin/activate  # Windows: venv\Scripts\activate
+
+# 3. 패키지 설치
+pip install pandas numpy scipy matplotlib seaborn openpyxl jupyter koreanize_matplotlib
+
+# 4. Jupyter 실행
+jupyter notebook
+
+# 5. notebooks/ 폴더에서 노트북 순서대로 실행
+```
+
+---
+
 ## 🔗 참고 자료
 
 ### 주요 논문
@@ -238,16 +210,6 @@ AIOE = (AI가 도와줄 수 있는 능력들의 가중치 합) / (전체 능력�
 - [Pandas Documentation](https://pandas.pydata.org/docs/)
 - [Matplotlib Tutorials](https://matplotlib.org/stable/tutorials/index.html)
 - [Google Colab Guide](https://colab.research.google.com/)
-
----
-
-## 🤝 기여하기
-
-이 프로젝트는 교육 목적으로 개발되었습니다. 개선 제안이나 발견한 이슈는 환영합니다!
-
-- 🐛 버그 리포트: Issues 탭에 등록
-- 💡 개선 제안: Pull Request 또는 Discussion
-- 📧 문의: your-email@example.com
 
 ---
 
@@ -281,7 +243,5 @@ AIOE = (AI가 도와줄 수 있는 능력들의 가중치 합) / (전체 능력�
 **Made with 📊 Data & 💡 Insights**
 
 *AI 시대를 살아가는 모든 이들에게*
-
-⭐ 이 프로젝트가 도움이 되었다면 Star를 눌러주세요!
 
 </div>
