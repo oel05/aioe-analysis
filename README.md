@@ -87,7 +87,7 @@ ChatGPT, Claude, Gemini... AI가 우리 일상에 깊숙이 들어온 지금, �
 
 ```
 aioe_proj/
-├── README.md                          # 프로젝트 소개 (이 파일)
+├── README.md                          # 프로젝트 소개
 ├── datas/
 │   ├── raw/                           # 원본 데이터
 │   │   ├── Abilities.xlsx             # O*NET 직업별 능력 데이터 (894 직업 × 52 능력)
@@ -109,24 +109,16 @@ aioe_proj/
 
 ### Google Colab (추천)
 
-1. **프로젝트 다운로드**
-   ```bash
-   # GitHub에서 클론
-   git clone https://github.com/your-username/aioe-analysis.git
-   ```
-
-2. **Google Drive에 업로드**
+1. **Google Drive에 업로드**
    - `aioe_proj` 폴더를 Google Drive **메인 화면**에 업로드
    - 경로: `내 드라이브/aioe_proj`
 
-3. **노트북 열기**
+2. **노트북 열기**
    - Google Drive에서 `.ipynb` 파일 우클릭
    - `연결 앱` → `Google Colaboratory` 선택
 
-4. **순서대로 실행**
+3. **순서대로 실행**
    - 00 → 01 → 02 → 03 → 04 순서로 실행
-
-자세한 설정 방법은 [SETUP.md](SETUP.md) 참조 (또는 00_Introduction 노트북 참조)
 
 ### 로컬 환경
 
@@ -140,7 +132,7 @@ python -m venv venv
 source venv/bin/activate  # Windows: venv\Scripts\activate
 
 # 3. 패키지 설치
-pip install pandas numpy scipy matplotlib seaborn openpyxl jupyter
+pip install pandas numpy scipy matplotlib seaborn openpyxl jupyter koreanize_matplotlib
 
 # 4. Jupyter 실행
 jupyter notebook
@@ -271,7 +263,7 @@ AIOE = (AI가 도와줄 수 있는 능력들의 가중치 합) / (전체 능력�
 
 ---
 
-## 📌 중요한 메시지
+## 📌 드리고 싶은 말씀
 
 > **AIOE는 "위협"이 아닌 "이해"를 위한 도구입니다.**
 >
