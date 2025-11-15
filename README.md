@@ -1,183 +1,295 @@
-# 🤖 AIOE (AI Occupational Exposure) 분석 프로젝트
+# AI Occupational Exposure (AIOE) 분석 프로젝트
 
-**AI가 직업에 미치는 영향을 데이터로 분석하는 프로젝트**
+<div align="center">
 
-ChatGPT와 같은 대형 언어 모델(LLM)이 다양한 직업에 어떤 영향을 미치는지 정량적으로 분석합니다.
+**"내 직업이 AI에 얼마나 노출될까?"**
 
+*데이터로 답하는 AI 시대의 직업 전망*
+
+[![Jupyter](https://img.shields.io/badge/Jupyter-Notebook-orange.svg)](https://jupyter.org/)
 [![Python](https://img.shields.io/badge/Python-3.8+-blue.svg)](https://www.python.org/)
-[![License](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
+[![License](https://img.shields.io/badge/License-Educational-green.svg)]()
 
-## 📊 프로젝트 개요
-
-이 프로젝트는 Felten et al. (2023)의 연구 방법론을 기반으로 AIOE(AI Occupational Exposure) 지표를 계산하고, 머신러닝을 활용하여 AI가 직업 시장에 미치는 영향을 분석합니다.
-
-**주요 분석 내용:**
-- 📐 AIOE 점수 계산 (974개 직업)
-- 🔍 탐색적 데이터 분석 (EDA)
-- 🎯 임금 예측 모델링 (Regression)
-
-## 🚀 빠른 시작
-
-### 1. 환경 설정
-
-```bash
-# 저장소 클론
-git clone https://github.com/oel05/aioe-analysis.git
-cd aioe_proj
-
-# 가상환경 생성
-python -m venv venv
-source venv/bin/activate  # Windows: venv\Scripts\activate
-
-# 필요한 패키지 설치
-pip install -r requirements.txt
-```
-
-### 2. 노트북 실행
-
-Jupyter Notebook을 실행하고 **순서대로** 노트북을 실행하세요:
-
-```bash
-jupyter notebook
-```
-
-**실행 순서:**
-```
-00_AIOE_intro.ipynb              ← 프로젝트 개요 (시작은 여기서!)
-    ↓
-01_AIOE_Data_Preprocessing.ipynb ← 데이터 전처리 및 AIOE 계산
-    ↓
-02_AIOE_EDA.ipynb                ← 탐색적 데이터 분석
-    ↓
-03_AIOE_Modeling.ipynb           ← 머신러닝 모델링
-```
-
-## 📁 프로젝트 구조
-
-```
-aioe_proj/
-├── README.md                           # 프로젝트 설명
-├── requirements.txt                    # Python 패키지 목록
-│
-├── notebooks/                          # Jupyter 노트북
-│   ├── 00_AIOE_intro.ipynb            # 프로젝트 소개
-│   ├── 01_AIOE_Data_Preprocessing.ipynb  # 데이터 전처리
-│   ├── 02_AIOE_EDA.ipynb              # 탐색적 데이터 분석
-│   └── 03_AIOE_Modeling.ipynb         # 머신러닝 모델링
-│
-├── datas/                              # 데이터
-│   ├── raw/                           # 원본 데이터 (수정 금지)
-│   │   ├── Abilities.txt              # O*NET 능력 데이터
-│   │   ├── Occupation Data.txt        # O*NET 직업 데이터
-│   │   ├── all_data_M_2024.xlsx       # BLS OEWS 임금 데이터
-│   │   ├── AIOE_DataAppendixD.csv     # AI-능력 매핑
-│   │   └── AIOE_DataAppendixE.csv     # AI 성능
-│   │
-│   └── processed/                     # 처리된 데이터 (재생성 가능)
-│       ├── job_aioe_processed.csv     # 01번 노트북 출력
-│       └── job_aioe_for_modeling.csv  # 02번 노트북 출력
-│
-└── references/                         # 참고 문헌
-    ├── How will Language Modelers like ChatGPT Affect....pdf
-    ├── calculating_occupational_exposure.pdf
-    └── ChatGPT_Impact_Summary.md
-```
-
-## 📖 주요 개념
-
-### AIOE (AI Occupational Exposure)
-
-AIOE는 **각 직업이 AI 기술에 얼마나 노출되어 있는지**를 나타내는 지표입니다.
-
-**계산 공식:**
-
-$$\text{AIOE}_k = \frac{\sum_{j} A_{ij} \times L_{jk} \times I_{jk}}{\sum_{j} L_{jk} \times I_{jk}}$$
-
-- **A<sub>ij</sub>**: 직업 i가 능력 j를 얼마나 필요로 하는가? (1~5점)
-- **L<sub>jk</sub>**: AI 기술 k가 능력 j를 수행할 수 있는가? (0~1)
-- **I<sub>jk</sub>**: AI 기술 k가 능력 j를 얼마나 잘 수행하는가? (0~1)
-
-**예시:**
-- 변호사 (Lawyers): AIOE = 4.8 (높음) → 문서 작성, 계약서 검토 등
-- 요리사 (Cooks): AIOE = 2.1 (낮음) → 육체적 작업, AI 대체 어려움
-
-## 📊 데이터 소스
-
-| 소스 | 제공 기관 | 내용 |
-|------|----------|------|
-| **O*NET** | 미국 노동부 | 직업별 능력 중요도 (52개 능력) |
-| **BLS OEWS** | 미국 노동통계국 | 고용 규모 및 평균 임금 |
-| **Felten et al.** | 연구 논문 | AI-능력 매핑, AI 성능 데이터 |
-
-## 🎯 주요 결과
-
-### 1. AIOE 분포
-- **최고 AIOE 직업**: Air Traffic Controllers (4.71), Neurologists (4.31), Lawyers (4.19)
-- **최저 AIOE 직업**: 청소부 (2.05), 요리사 (2.19), 소매 판매원 (2.40)
-- 평균 AIOE: 3.34 (747개 직업)
-
-### 2. AIOE와 임금의 양의 상관관계
-- AIOE 점수가 높을수록 평균 임금도 높은 경향
-- 단, 단순 선형 관계는 아님 (직업 특성에 따라 다양)
-- 고AIOE-고임금: 변호사, 의사, 교육관리자
-- 저AIOE-저임금: 청소부, 식당 보조, 단순 노동
-
-### 3. 머신러닝 임금 예측 모델 성능
-- **최고 성능: Random Forest (R² = 0.66)**
-  - 숫자 피처만 (AIOE + Employment): R² = 0.49
-  - 숫자 + 텍스트 (Description TF-IDF): R² = 0.66 (**+17.4%p**)
-- AIOE만으로도 임금 분산의 50.8% 설명 가능
-- 직무 설명 텍스트가 예측 성능을 크게 향상
-
-### 4. 피처 중요도 분석
-- **가장 중요한 피처**: AIOE 점수
-- **중요한 텍스트 단어**: "research", "develop", "manage", "analyze"
-- 전문성 관련 단어가 높은 임금과 강한 연관성
-
-## 🛠️ 기술 스택
-
-**언어 & 프레임워크:**
-- Python 3.8+
-- Jupyter Notebook
-
-**핵심 라이브러리:**
-- `pandas`, `numpy`: 데이터 처리
-- `matplotlib`, `seaborn`: 시각화
-- `scikit-learn`: 머신러닝
-- `lightgbm`: Gradient Boosting
-
-## 📚 참고 문헌
-
-1. **Felten, E., Raj, M., & Seamans, R. (2023)**
-   *How will Language Modelers like ChatGPT Affect Occupations and Industries?*
-   arXiv:2303.01157
-
-2. **Felten, E., Raj, M., & Seamans, R. (2021)**
-   *Occupational, industry, and geographic exposure to artificial intelligence*
-   Strategic Management Journal, 42(12), 2195-2217
-
-## 🤝 기여
-
-이 프로젝트는 교육 목적으로 제작되었습니다. 개선 제안이나 버그 리포트는 Issue를 통해 제출해주세요.
-
-## 📝 라이선스
-
-MIT License
-
-## 👤 작성자
-
-- 연구 기반: Felten et al. (2023)
-- 구현: LeoLAB
-
-## 🙏 감사의 말
-
-- O*NET Database (U.S. Department of Labor)
-- Bureau of Labor Statistics (BLS)
-- Felten, Raj, Seamans 연구팀
+</div>
 
 ---
 
-**💡 Tip:** 프로젝트에 대한 자세한 설명은 `notebooks/00_AIOE_intro.ipynb`를 참고하세요!
+## 🎯 프로젝트 소개
 
+ChatGPT, Claude, Gemini... AI가 우리 일상에 깊숙이 들어온 지금, 많은 사람들이 궁금해합니다:
 
+> "AI가 내 직업을 대체하게 될까?"
+> "어떤 직업이 AI의 영향을 많이 받을까?"
+> "나는 어떤 능력을 개발해야 할까?"
 
+이 프로젝트는 **Princeton University와 NYU의 연구진이 개발한 AIOE(AI Occupational Exposure) 방법론**을 활용하여, **894개 직업**이 **AI 기술(특히 언어 모델)**에 얼마나 노출되는지를 **데이터 기반으로 분석**합니다.
+
+### 왜 이 분석이 필요한가?
+
+- 📊 **객관적 지표**: 추측이나 의견이 아닌, 데이터에 기반한 측정
+- 🔍 **직업별 세부 분석**: 894개 직업 각각의 AI 노출도 계산
+- 💡 **능력 기반 접근**: 각 직업이 요구하는 52개 능력을 AI가 얼마나 잘 수행하는지 평가
+- 🎓 **검증된 방법론**: Strategic Management Journal 게재 논문의 분석 방법 재현
+
+### 이 분석이 의미하지 않는 것
+
+이 프로젝트는 **"AI가 직업을 없앤다"는 공포를 조장하지 않습니다.**
+
+- ❌ 높은 AIOE ≠ 직업이 사라짐
+- ❌ 낮은 AIOE ≠ 안전한 직업
+- ✅ AIOE = AI가 도울 수 있는 영역이 많다
+- ✅ **목적**: 현 상황을 객관적으로 이해하고, 미래를 준비하는 나침반
+
+---
+
+## 🔍 주요 발견
+
+### 1. AI 노출도는 양극화되어 있다 (이봉분포)
+
+직업들은 크게 두 그룹으로 나뉩니다:
+- **높은 AIOE 그룹**: 정보 처리, 분석, 언어 능력이 중요한 직업 (변호사, 작가, 번역가 등)
+- **낮은 AIOE 그룹**: 신체적 기술, 손재주가 중요한 직업 (요리사, 건설 노동자 등)
+
+### 2. 화이트칼라 직업의 AI 노출도가 더 높다
+
+과거 산업혁명이 블루칼라 직업에 영향을 준 것과 달리, **AI 혁명은 사무직/전문직에 더 큰 영향**을 미칩니다.
+
+### 3. 높은 AIOE = 높은 생산성 향상 기회
+
+- AI 도구를 잘 활용하면 **업무 효율성을 크게 높일 수 있음**
+- 반복적이고 패턴화된 업무에서 해방되어 **창의적 업무에 집중** 가능
+- AI는 위협이 아닌 **협업 도구**
+
+---
+
+## 📚 무엇을 배우나요?
+
+이 프로젝트를 통해 다음을 경험할 수 있습니다:
+
+### 1. 데이터 과학 실전 스킬
+- 📂 **데이터 전처리**: 여러 출처의 데이터를 하나로 병합하고 정제
+- 🧮 **복잡한 지표 계산**: 정규화, 가중 평균, Z-score 표준화
+- 📊 **탐색적 데이터 분석**: 시각화를 통한 인사이트 도출
+
+### 2. 실제 연구 논문 재현
+- 📄 Felten et al. (2021) 논문의 방법론을 직접 구현
+- 🔬 연구 방법의 이해와 한계 인식
+- 📈 결과 해석과 비판적 사고
+
+### 3. AI 시대에 대한 통찰
+- 🤖 AI가 잘하는 것 vs 못하는 것
+- 💼 직업의 미래와 변화 방향
+- 🎯 개인의 커리어 전략 수립
+
+---
+
+## 🗂️ 프로젝트 구조
+
+```
+aioe_proj/
+├── README.md                          # 프로젝트 소개 (이 파일)
+├── datas/
+│   ├── raw/                           # 원본 데이터
+│   │   ├── Abilities.xlsx             # O*NET 직업별 능력 데이터 (894 직업 × 52 능력)
+│   │   └── mturk_mapping_matrix.csv   # AI-능력 매핑 데이터 (10 AI × 52 능력)
+│   └── processed/                     # 처리된 데이터
+│       ├── preprocessed_data.csv      # 병합된 데이터
+│       └── aioe_master.csv            # 최종 AIOE 점수
+└── notebooks/
+    ├── 00_AIOE_Introduction.ipynb     # 프로젝트 소개 및 배경
+    ├── 01_AIOE_Data_Preprocessing.ipynb  # 데이터 전처리
+    ├── 02_AIOE_Calculation.ipynb      # AIOE 점수 계산
+    ├── 03_AIOE_EDA.ipynb              # 탐색적 데이터 분석
+    └── 04_AIOE_Conclusion.ipynb       # 결론 및 인사이트
+```
+
+---
+
+## 🚀 시작하기
+
+### Google Colab (추천)
+
+1. **프로젝트 다운로드**
+   ```bash
+   # GitHub에서 클론
+   git clone https://github.com/your-username/aioe-analysis.git
+   ```
+
+2. **Google Drive에 업로드**
+   - `aioe_proj` 폴더를 Google Drive **메인 화면**에 업로드
+   - 경로: `내 드라이브/aioe_proj`
+
+3. **노트북 열기**
+   - Google Drive에서 `.ipynb` 파일 우클릭
+   - `연결 앱` → `Google Colaboratory` 선택
+
+4. **순서대로 실행**
+   - 00 → 01 → 02 → 03 → 04 순서로 실행
+
+자세한 설정 방법은 [SETUP.md](SETUP.md) 참조 (또는 00_Introduction 노트북 참조)
+
+### 로컬 환경
+
+```bash
+# 1. 저장소 클론
+git clone https://github.com/your-username/aioe-analysis.git
+cd aioe_proj
+
+# 2. 가상환경 생성 및 활성화
+python -m venv venv
+source venv/bin/activate  # Windows: venv\Scripts\activate
+
+# 3. 패키지 설치
+pip install pandas numpy scipy matplotlib seaborn openpyxl jupyter
+
+# 4. Jupyter 실행
+jupyter notebook
+
+# 5. notebooks/ 폴더에서 노트북 순서대로 실행
+```
+
+---
+
+## 📊 데이터 소개
+
+### O*NET Database
+- **출처**: 미국 노동부 O*NET 프로그램
+- **버전**: 30.0 (2024년 7월)
+- **내용**: 894개 직업의 52개 능력에 대한 중요도(Importance)와 수준(Level)
+- **라이선스**: Public Domain
+
+### MTurk AI Mapping Data
+- **출처**: Felten et al. (2021) 연구
+- **내용**: 10개 AI 응용 프로그램이 52개 능력을 얼마나 잘 수행하는지 평가 (Beta 값)
+- **사용**: Language Modeling (ChatGPT, Claude 등 대형 언어 모델)
+
+---
+
+## 🧮 AIOE는 어떻게 계산하나?
+
+### 핵심 아이디어
+
+```
+AIOE = (AI가 도와줄 수 있는 능력들의 가중치 합) / (전체 능력의 가중치 합)
+```
+
+### 계산 과정
+
+1. **정규화**: Importance(1-5)와 Level(0-7)을 0-1 범위로 변환
+2. **Scalar 계산**: `Scalar = Normalized_Level × Normalized_Importance`
+3. **가중 영향도**: `Weighted_Impact = Scalar × Beta` (AI가 잘하는 능력일수록 높음)
+4. **직업별 집계**: 52개 능력의 가중 영향도를 합산
+5. **표준화**: Z-score로 변환하여 상대적 위치 파악
+
+자세한 수식과 코드는 `02_AIOE_Calculation.ipynb` 참조
+
+---
+
+## 📈 주요 결과 예시
+
+### TOP 10 직업 (AI 노출도 높음)
+
+| 순위 | 직업 | AIOE Z-score |
+|------|------|--------------|
+| 1 | Interpreters and Translators | 2.85 |
+| 2 | Survey Researchers | 2.71 |
+| 3 | Poets, Lyricists and Creative Writers | 2.43 |
+| 4 | Sociologists | 2.35 |
+| 5 | Animal Scientists | 2.32 |
+
+### BOTTOM 10 직업 (AI 노출도 낮음)
+
+| 순위 | 직업 | AIOE Z-score |
+|------|------|--------------|
+| 1 | Meat, Poultry, and Fish Cutters | -1.84 |
+| 2 | Outdoor Power Equipment Operators | -1.76 |
+| 3 | Dredge Operators | -1.73 |
+| 4 | Slaughterers and Meat Packers | -1.68 |
+| 5 | Fence Erectors | -1.67 |
+
+*상세한 분석과 시각화는 `03_AIOE_EDA.ipynb` 참조*
+
+---
+
+## 💡 이 프로젝트의 의의
+
+### 학술적 의의
+- ✅ 실제 연구 논문(Strategic Management Journal 게재)의 방법론 재현
+- ✅ 재현 가능한 투명한 분석 과정
+- ✅ 데이터 기반 의사결정의 사례
+
+### 교육적 의의
+- 📚 실전 데이터 과학 프로젝트 경험
+- 🧠 비판적 사고와 데이터 해석 능력 향상
+- 💻 Python, Pandas, Matplotlib 실무 활용
+
+### 사회적 의의
+- 🌍 AI 시대의 직업 변화에 대한 객관적 이해
+- 🎯 개인의 커리어 전략 수립에 도움
+- 🤝 AI를 위협이 아닌 도구로 인식
+
+---
+
+## 🔗 참고 자료
+
+### 주요 논문
+- **Felten, E., Raj, M., & Seamans, R. (2021).** Occupational, industry, and geographic exposure to artificial intelligence: A novel dataset and its potential uses. *Strategic Management Journal*, 42(12), 2195-2217. [DOI](https://doi.org/10.1002/smj.3286)
+
+- Eloundou, T., Manning, S., Mishkin, P., & Rock, D. (2023). GPTs are GPTs: An early look at the labor market impact potential of large language models. *arXiv preprint* arXiv:2303.10130. [Link](https://arxiv.org/abs/2303.10130)
+
+### 데이터 출처
+- [O*NET Database](https://www.onetcenter.org/) - 미국 노동부 직업 정보 시스템
+- [O*NET Resource Center](https://www.onetcenter.org/database.html) - 데이터 다운로드 및 문서
+- [AI Index](https://aiindex.stanford.edu/) - Stanford HAI AI 동향 보고서
+
+### 추가 학습 자료
+- [Pandas Documentation](https://pandas.pydata.org/docs/)
+- [Matplotlib Tutorials](https://matplotlib.org/stable/tutorials/index.html)
+- [Google Colab Guide](https://colab.research.google.com/)
+
+---
+
+## 🤝 기여하기
+
+이 프로젝트는 교육 목적으로 개발되었습니다. 개선 제안이나 발견한 이슈는 환영합니다!
+
+- 🐛 버그 리포트: Issues 탭에 등록
+- 💡 개선 제안: Pull Request 또는 Discussion
+- 📧 문의: your-email@example.com
+
+---
+
+## 📝 라이선스
+
+### 데이터
+- **O*NET Database**: Public Domain (미국 노동부)
+- **MTurk Data**: Felten et al. (2021) 연구 데이터 활용
+
+### 코드
+- 본 프로젝트의 코드는 교육 목적으로 자유롭게 사용 가능합니다.
+- 재사용 시 출처 표기를 권장합니다.
+
+---
+
+## 📌 중요한 메시지
+
+> **AIOE는 "위협"이 아닌 "이해"를 위한 도구입니다.**
+>
+> - ❌ 높은 AIOE = 직업이 사라진다 (X)
+> - ✅ 높은 AIOE = AI와 협업할 기회가 많다 (O)
+>
+> AI는 우리의 생산성을 높이는 도구입니다.
+> 중요한 것은 이 변화를 객관적으로 이해하고,
+> 우리가 나아갈 방향을 함께 찾는 것입니다.
+
+---
+
+<div align="center">
+
+**Made with 📊 Data & 💡 Insights**
+
+*AI 시대를 살아가는 모든 이들에게*
+
+⭐ 이 프로젝트가 도움이 되었다면 Star를 눌러주세요!
+
+</div>
