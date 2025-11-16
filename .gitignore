@@ -44,3 +44,4 @@ ENV/
 *.pkl
 *.h5
 *.model
+00_AIOE_Slides.html
