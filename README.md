@@ -123,7 +123,7 @@ $$
 ## 프로젝트 구조
 
 ```
-aioe_proj/
+aioe_project/
 ├── README.md                              # 프로젝트 소개
 ├── index.html                             # 📊 인포그래픽 분석 보고서 (GitHub Pages)
 ├── datas/
@@ -154,8 +154,8 @@ aioe_proj/
 #### Google Colab (추천)
 
 1. **Google Drive에 업로드**
-   - `aioe_proj` 폴더를 Google Drive **메인 화면**에 업로드
-   - 경로: `내 드라이브/aioe_proj`
+   - `aioe_project` 폴더를 Google Drive **메인 화면**에 업로드
+   - 경로: `내 드라이브/aioe_project`
 
 2. **노트북 열기**
    - Google Drive에서 `notebooks/` 폴더의 `.ipynb` 파일 우클릭

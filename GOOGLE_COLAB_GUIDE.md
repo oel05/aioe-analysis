@@ -25,7 +25,7 @@
    - Windows: 파일 우클릭 → `압축 풀기` 또는 `모두 압축 풀기`
    - Mac: 파일을 더블클릭
 
-3. `aioe_proj` 폴더가 생성됩니다
+3. `aioe_project` 폴더가 생성됩니다
 
 ---
 
@@ -37,12 +37,12 @@
    - 왼쪽 메뉴에서 "내 드라이브" 클릭
    - 주소창에 `https://drive.google.com/drive/my-drive` 표시 확인
 
-3. `aioe_proj` 폴더를 **드래그 앤 드롭**으로 업로드
+3. `aioe_project` 폴더를 **드래그 앤 드롭**으로 업로드
    - 또는 `새로 만들기` → `폴더 업로드` 선택
 
 4. 업로드 완료 후 **경로 확인**:
    ```
-   내 드라이브/aioe_proj/
+   내 드라이브/aioe_project/
    ```
 
 ---
@@ -53,9 +53,11 @@
 
 ```
 내 드라이브/
-└── aioe_proj/
+└── aioe_project/
     ├── datas/
     │   ├── raw/
+    │   │   ├── Abilities.xlsx
+    │   │   └── mturk_mapping_matrix.csv
     │   └── processed/
     ├── notebooks/
     │   ├── 00_AIOE_Intro.ipynb
@@ -70,7 +72,7 @@
 ```
 
 **확인 방법:**
-1. Google Drive에서 `aioe_proj` 폴더 클릭
+1. Google Drive에서 `aioe_project` 폴더 클릭
 2. `notebooks` 폴더가 보이는지 확인
 3. `datas` 폴더가 보이는지 확인
 
@@ -80,7 +82,7 @@
 
 ### 노트북 열기
 
-1. Google Drive에서 `aioe_proj/notebooks/` 폴더로 이동
+1. Google Drive에서 `aioe_project/notebooks/` 폴더로 이동
 
 2. `00_AIOE_Intro.ipynb` 파일 **우클릭**
 
@@ -141,10 +143,10 @@ drive.mount('/content/drive')
 
 ### Q1: "파일을 찾을 수 없습니다" 오류가 나요
 
-**원인**: `aioe_proj` 폴더가 메인 드라이브가 아닌 다른 위치에 있을 수 있습니다
+**원인**: `aioe_project` 폴더가 메인 드라이브가 아닌 다른 위치에 있을 수 있습니다
 
 **해결**:
-1. Google Drive에서 `aioe_proj` 폴더를 찾으세요
+1. Google Drive에서 `aioe_project` 폴더를 찾으세요
 2. 폴더를 **메인 드라이브 최상위**로 이동:
    - 폴더 우클릭 → `이동` → `내 드라이브` 선택
 
