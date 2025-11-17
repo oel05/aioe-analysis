@@ -56,8 +56,6 @@
 └── aioe_project/
     ├── datas/
     │   ├── raw/
-    │   │   ├── Abilities.xlsx
-    │   │   └── mturk_mapping_matrix.csv
     │   └── processed/
     ├── notebooks/
     │   ├── 00_AIOE_Intro.ipynb
