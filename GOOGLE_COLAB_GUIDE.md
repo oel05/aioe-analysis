@@ -8,7 +8,7 @@
 
 아래 링크를 클릭하여 `aioe_project.zip` 파일을 다운로드하세요:
 
-### 🔗 [aioe_project.zip 다운로드](https://drive.google.com/file/d/1AVnj21bVOV5kTmgTHp9K-nLp0Sz3X6lv/view?usp=drive_link)
+### 🔗 [aioe_project.zip 다운로드](https://drive.google.com/file/d/1eBqTGL6G507anuVA8ziduE7g27LfiAoV/view?usp=drive_link)
 
 > **파일 크기**: 약 10MB
 > **포함 내용**: 노트북 5개, 데이터 파일, 실습용 노트북 3개
