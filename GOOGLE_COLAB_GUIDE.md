@@ -6,9 +6,9 @@
 
 ## 📦 1단계: 프로젝트 파일 다운로드
 
-아래 링크를 클릭하여 `aioe_proj.zip` 파일을 다운로드하세요:
+아래 링크를 클릭하여 `aioe_project.zip` 파일을 다운로드하세요:
 
-### 🔗 [aioe_proj.zip 다운로드](https://drive.google.com/file/d/1mTcXfrTEOTM5G4ZhsfUYA_rXC2gYb5UC/view?usp=sharing)
+### 🔗 [aioe_project.zip 다운로드](https://drive.google.com/file/d/1mTcXfrTEOTM5G4ZhsfUYA_rXC2gYb5UC/view?usp=drive_link)
 
 > **파일 크기**: 약 10MB
 > **포함 내용**: 노트북 5개, 데이터 파일, 실습용 노트북 3개
@@ -17,7 +17,7 @@
 
 ## 📂 2단계: 압축 풀기
 
-1. 다운로드한 `aioe_proj.zip` 파일을 찾으세요
+1. 다운로드한 `aioe_project.zip` 파일을 찾으세요
    - Windows: 보통 `다운로드` 폴더
    - Mac: `Downloads` 폴더
 
