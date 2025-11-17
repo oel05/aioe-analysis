@@ -95,9 +95,25 @@ $$
 ### 계산 단계
 
 1. **정규화**: Level(0-7), Importance(1-5)를 [0, 1] 범위로 변환
-2. **Scalar 계산**: $S_{ij} = \text{Level}_{ij} \times \text{Importance}_{ij}$
-3. **가중 영향도**: $W_{ij} = S_{ij} \times \beta_i$
-4. **직업별 집계**: $\text{AIOE}_j = \frac{\sum W_{ij}}{\sum S_{ij}}$ (52개 능력 합산)
+
+2. **Scalar 계산**:
+
+   ```text
+   S_ij = Level_ij × Importance_ij
+   ```
+
+3. **가중 영향도**:
+
+   ```text
+   W_ij = S_ij × β_i
+   ```
+
+4. **직업별 집계** (52개 능력 합산):
+
+   ```text
+   AIOE_j = (ΣW_ij) / (ΣS_ij)
+   ```
+
 5. **표준화**: Z-score 변환 → 평균 0, 표준편차 1
 
 자세한 구현은 `02_AIOE_Calculation.ipynb` 참조
