@@ -139,10 +139,10 @@ aioe_proj/
 │   ├── 02_AIOE_Calculation.ipynb          # AIOE 점수 계산
 │   ├── 03_AIOE_EDA.ipynb                  # 탐색적 데이터 분석
 │   └── 04_AIOE_Outro.ipynb                # 결론 및 다음 단계
-└── notebooks_practice/                    # 🏃 실습용 노트북 (답안 제거)
-    ├── 01_AIOE_Data_Preprocessing_Practice.ipynb
-    ├── 02_AIOE_Calculation_Practice.ipynb
-    └── 03_AIOE_EDA_Practice.ipynb
+└── notebooks_실습용/                      # 🏃 실습용 노트북 (답안 제거)
+    ├── 01_AIOE_Data_Preprocessing_실습용.ipynb
+    ├── 02_AIOE_Calculation_실습용.ipynb
+    └── 03_AIOE_EDA_실습용.ipynb
 ```
 
 ---
@@ -169,7 +169,7 @@ aioe_proj/
    - 04_AIOE_Outro.ipynb (결론)
 
 4. **실습하기 (선택)**
-   - `notebooks_practice/` 폴더의 연습 노트북으로 직접 코딩해보기
+   - `notebooks_실습용/` 폴더의 연습 노트북으로 직접 코딩해보기
 
 #### 로컬 환경
 
