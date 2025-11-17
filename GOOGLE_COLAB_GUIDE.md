@@ -31,8 +31,6 @@
 
 ## ☁️ 3단계: Google Drive에 업로드
 
-### 방법 1: 웹 브라우저 사용 (권장)
-
 1. [Google Drive](https://drive.google.com)에 접속하세요
 
 2. **메인 화면** (내 드라이브 최상위)에 있는지 확인하세요
@@ -46,18 +44,6 @@
    ```
    내 드라이브/aioe_proj/
    ```
-
-### 방법 2: Google Drive 데스크톱 앱 사용
-
-1. Google Drive 데스크톱 앱이 설치되어 있다면
-
-2. 로컬의 Google Drive 폴더로 이동
-   - Windows: `C:\Users\[사용자명]\Google Drive`
-   - Mac: `/Users/[사용자명]/Google Drive`
-
-3. `aioe_proj` 폴더를 복사하여 붙여넣기
-
-4. 자동으로 클라우드에 동기화됩니다
 
 ---
 
